@@ -6,9 +6,9 @@
             </div>
         @endif
     </div>
-    <form wire:submit.prevent="addComment">
+    <form wire:submit.prevent="addComment" style="margin-bottom: 20px">
         <div class="input-group">
-            <input type="text" wire:model.debounce.500ms="comment" class="form-control" placeholder="Write comment here...">
+            <input type="text" required wire:model.debounce.500ms="comment" class="form-control" placeholder="Write comment here...">
             <div class="input-group-btn">
                 <button class="btn btn-success" type="submit">
                     <i class="fa fa-save"></i> Post
@@ -21,10 +21,10 @@
     </form>
 
     @foreach($comments as $comment)
-        <div class="panel panel-default" style="margin-top: 20px">
-            <div class="panel-body">
-                <p class="panel-title" style="margin-bottom: 5px">
-                    <span><strong>{{$comment->user->name}} </strong></span>
+        <div class="card" style="margin-top: 5px">
+            <div class="card-body">
+                <p class="card-title" style="margin-bottom: 5px">
+                    <span><strong>{{$comment->user->name}} &nbsp;</strong></span>
                     <span style="font-size: 12px">{{$comment->created_at->diffforhumans()}}</span>
                     <span class="btn text-danger pull-right">
                         <strong>

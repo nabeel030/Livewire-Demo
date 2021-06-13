@@ -26,7 +26,7 @@ class Comment extends Component
 
         $newComment = CommentModel::create([
             'body' => $this->comment,
-            'user_id' => 1,
+            'user_id' => auth()->id(),
             'created_at' => Carbon::now(),
             'support_ticket_id' => $this->ticketID
         ]);
